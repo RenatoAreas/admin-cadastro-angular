@@ -10,9 +10,9 @@ import { ConsultaProfissionaisComponent } from './consulta-profissionais/consult
 import { RouterModule, Routes } from '@angular/router';
 
 const routes : Routes = [
-  { path : 'dashboard-principal', component : DashboardPrincipalComponent},
-  { path : 'cadastro-profissional', component : DashboardPrincipalComponent},
-  { path : 'consulta-profissional', component : DashboardPrincipalComponent},
+  { path : '', component : DashboardPrincipalComponent},
+  { path : 'cadastro-profissional', component : CadastroProfissionaisComponent},
+  { path : 'consulta-profissional', component : ConsultaProfissionaisComponent}
 ];
 
 @NgModule({

@@ -7,6 +7,8 @@ import { DashboardPrincipalComponent } from './dashboard-principal/dashboard-pri
 import { CadastroProfissionaisComponent } from './cadastro-profissionais/cadastro-profissionais.component';
 import { ConsultaProfissionaisComponent } from './consulta-profissionais/consulta-profissionais.component';
 
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { RouterModule, Routes } from '@angular/router';
 
 const routes : Routes = [
@@ -25,7 +27,8 @@ const routes : Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

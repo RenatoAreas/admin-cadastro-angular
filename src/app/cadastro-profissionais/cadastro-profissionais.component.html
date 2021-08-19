@@ -12,7 +12,8 @@
                     <label class="mt-4">Nome:</label>
                     <input type="text" class="form-control"
                         formControlName="nome" />
-                    <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+                    <div class="text-danger" 
+                        *ngIf="form.nome.touched && form.nome.invalid">
                         <span *ngIf="form.nome.errors.required">
                             <i class="fa fa-exclamation-circle"></i>
                             Por favor, informe o nome.
@@ -40,15 +41,43 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <label class="mt-4">CPF: </label>
-                    <Input type="text" class="form-control"
-                        formControlName="cpf">
 
-                    <label class="mt-4">Telefone: </label>
-                    <Input type="text" class="form-control" 
-                        formControlName="telefone">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="mt-4">CPF:</label>
+                        <input type="text" class="form-control"
+                            formControlName="cpf" />
+                        <div class="text-danger" 
+                            *ngIf="form.cpf.touched && form.cpf.invalid">
+                            <span *ngIf="form.cpf.errors.required">
+                                <i class="fa fa-exclamation-circle"></i>
+                                Por favor, informe o cpf.
+                            </span>
+    
+                            <span *ngIf="form.cpf.errors.minlength">
+                                <i class="fa fa-exclamation-circle"></i>
+                                Por favor, informe pelo meno 11 caracteres.
+                            </span>
+                        </div>
+    
+                        <label class="mt-4">Telefone:</label>
+                        <input type="text" class="form-control"
+                        formControlName="telefone" />
+    
+                        <div class="text-danger" *ngIf="form.telefone.touched && form.telefone.invalid">
+                            <span *ngIf="form.telefone.errors.required">
+                                <i class="fa fa-exclamation-circle"></i>
+                                Por favor, informe o telefone.
+                            </span>
+    
+                            <span *ngIf="form.telefone.errors.minlength">
+                                <i class="fa fa-exclamation-circle"></i>
+                                Por favor, informe o telefone.
+                            </span>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="col-md-10">
                     <label class="mt-4">Observações</label>
                     <textarea class="form-control"

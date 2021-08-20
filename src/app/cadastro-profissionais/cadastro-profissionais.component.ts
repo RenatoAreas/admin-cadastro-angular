@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ProfissionaisService } from '../services/profissionais.service';
 
 @Component({
   selector: 'app-cadastro-profissionais',
@@ -8,7 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CadastroProfissionaisComponent implements OnInit {
 
-  constructor() { }
+  //inicializando os serviços do componente
+  constructor(private profissionaisService : ProfissionaisService) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +37,9 @@ export class CadastroProfissionaisComponent implements OnInit {
       Validators.maxLength(14)
     ]),
     observacao : new FormControl('', [
-      
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(200)
     ]),
 
   });
@@ -45,8 +49,14 @@ export class CadastroProfissionaisComponent implements OnInit {
   }
 
   onSubmit() : void{
-    console.log(this.formCadastroProfissional.value);
+    //gravando os dados em memória
+    this.profissionaisService.addProfissional(this.formCadastroProfissional.value)
 
+    //limpando os campos do formulário
+    this.formCadastroProfissional.reset();
+
+    //mensagem básica de sucesso
+    window.alert('Profissional cadastrado com sucesso!')
   }
 
 }

@@ -9,7 +9,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label class="mt-4">Nome:</label>
+                    <label class="mt-4">Nome: <strong>*</strong></label>
                     <input type="text" class="form-control"
                         formControlName="nome" />
                     <div class="text-danger" 
@@ -25,7 +25,7 @@
                         </span>
                     </div>
 
-                    <label class="mt-4">E-mail:</label>
+                    <label class="mt-4">E-mail: <strong>*</strong></label>
                     <input type="text" class="form-control"
                     formControlName="email" />
 
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <label class="mt-4">CPF:</label>
+                        <label class="mt-4">CPF: <strong>*</strong></label>
                         <input type="text" class="form-control"
                             formControlName="cpf" />
                         <div class="text-danger" 
@@ -60,7 +60,7 @@
                             </span>
                         </div>
     
-                        <label class="mt-4">Telefone:</label>
+                        <label class="mt-4">Telefone: <strong>*</strong></label>
                         <input type="text" class="form-control"
                         formControlName="telefone" />
     
@@ -79,13 +79,25 @@
                 </div>
                 
                 <div class="col-md-10">
-                    <label class="mt-4">Observações</label>
+                    <label class="mt-4">Observações: <strong>*</strong></label>
                     <textarea class="form-control"
                     formControlName="observacao"></textarea>
+                    <div class="text-danger" *ngIf="form.observacao.touched && form.observacao.invalid">
+                        <span *ngIf="form.observacao.errors.required">
+                            <i class="fa fa-exclamation-circle"></i>
+                            Por favor, informe o observacao.
+                        </span>
+
+                        <span *ngIf="form.observacao.errors.minlength">
+                            <i class="fa fa-exclamation-circle"></i>
+                            Por favor, insira uma observação.
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            <button class="btn btn-success mt-4"  type="submit">
+            <button class="btn btn-success mt-4"  type="submit" 
+                [disabled]="!formCadastroProfissional.valid">
                 <i class="fa fa-check-circle"></i> Salvar
 
             </button>

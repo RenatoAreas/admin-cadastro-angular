@@ -1,3 +1,11 @@
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong><i class="fas fa-check-circle"></i>  {{message}}</strong> 
+    <button type="button" class="close" (click)="clearMessage()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
 <!-- Basic Card Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -9,7 +17,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label class="mt-4">Nome: <strong>*</strong></label>
+                    <label class="mt-4">Nome: <strong id="obrigatorio">*</strong></label>
                     <input type="text" class="form-control"
                         formControlName="nome" />
                     <div class="text-danger" 
@@ -25,7 +33,7 @@
                         </span>
                     </div>
 
-                    <label class="mt-4">E-mail: <strong>*</strong></label>
+                    <label class="mt-4">E-mail: <strong id="obrigatorio">*</strong></label>
                     <input type="text" class="form-control"
                     formControlName="email" />
 
@@ -44,7 +52,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <label class="mt-4">CPF: <strong>*</strong></label>
+                        <label class="mt-4">CPF: <strong id="obrigatorio">*</strong></label>
                         <input type="text" class="form-control"
                             formControlName="cpf" />
                         <div class="text-danger" 
@@ -60,7 +68,7 @@
                             </span>
                         </div>
     
-                        <label class="mt-4">Telefone: <strong>*</strong></label>
+                        <label class="mt-4">Telefone: <strong id="obrigatorio">*</strong></label>
                         <input type="text" class="form-control"
                         formControlName="telefone" />
     
@@ -79,7 +87,7 @@
                 </div>
                 
                 <div class="col-md-10">
-                    <label class="mt-4">Observações: <strong>*</strong></label>
+                    <label class="mt-4">Observações: <strong id="obrigatorio">*</strong></label>
                     <textarea class="form-control"
                     formControlName="observacao"></textarea>
                     <div class="text-danger" *ngIf="form.observacao.touched && form.observacao.invalid">

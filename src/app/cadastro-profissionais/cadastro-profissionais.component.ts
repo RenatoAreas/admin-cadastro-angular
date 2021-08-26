@@ -9,6 +9,8 @@ import { ProfissionaisService } from '../services/profissionais.service';
 })
 export class CadastroProfissionaisComponent implements OnInit {
 
+  message = "";
+
   //inicializando os serviços do componente
   constructor(private profissionaisService : ProfissionaisService) { }
 
@@ -56,7 +58,12 @@ export class CadastroProfissionaisComponent implements OnInit {
     this.formCadastroProfissional.reset();
 
     //mensagem básica de sucesso
-    window.alert('Profissional cadastrado com sucesso!')
+    this.message = 'Tarefa cadastrada com sucesso!';
+
+  }
+
+  clearMessage() : void {
+    this.message = ""; 
   }
 
 }
